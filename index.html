@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+user-scalable=no">
+
+<meta name="theme-color" content="#111111">
+
+<meta name="description"
+content="My Overtime - Your Personal Overtime Calculator">
+
+<title>My Overtime</title>
+
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+html,
+body{
+    width:100%;
+    height:100%;
+}
+
+body{
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    background:#111;
+
+    color:#fff;
+
+    overflow:hidden;
+}
+
+
+/* =========================
+   FULL SCREEN BACKGROUND
+========================= */
+
+.page{
+
+    width:100%;
+    height:100vh;
+
+    min-height:100vh;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    background-image:
+
+        linear-gradient(
+            rgba(0,0,0,.46),
+            rgba(0,0,0,.58)
+        ),
+
+        url("workers.jpg");
+
+    background-size:cover;
+
+    background-position:center center;
+
+    background-repeat:no-repeat;
+}
+
+
+/* =========================
+   SOFT BLUR
+========================= */
+
+.page::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        rgba(0,0,0,.08);
+
+    backdrop-filter:
+        blur(2px);
+
+    -webkit-backdrop-filter:
+        blur(2px);
+
+    pointer-events:none;
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.content{
+
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+
+    max-width:500px;
+
+    padding:25px;
+
+    text-align:center;
+}
+
+
+/* =========================
+   APP LOGO
+========================= */
+
+.logo{
+
+    width:150px;
+
+    height:150px;
+
+    display:block;
+
+    margin:
+        0 auto 25px;
+
+    object-fit:contain;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    filter:
+        drop-shadow(
+            0 13px 25px
+            rgba(0,0,0,.60)
+        );
+}
+
+
+/* =========================
+   APP NAME
+========================= */
+
+.app-name{
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size:50px;
+
+    line-height:1;
+
+    font-weight:bold;
+
+    color:#fff;
+
+    letter-spacing:-1px;
+
+    margin-bottom:15px;
+
+    text-shadow:
+        0 3px 12px
+        rgba(0,0,0,.95);
+}
+
+
+/* =========================
+   RED LINE
+========================= */
+
+.red-line{
+
+    width:62px;
+
+    height:3px;
+
+    margin:
+        0 auto 17px;
+
+    background:#e00000;
+
+    border:none;
+
+    box-shadow:
+        0 0 12px
+        rgba(224,0,0,.65);
+}
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.subtitle{
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size:18px;
+
+    line-height:1.4;
+
+    color:#fff;
+
+    margin-bottom:30px;
+
+    text-shadow:
+        0 2px 9px
+        rgba(0,0,0,.95);
+}
+
+
+/* =========================
+   DOWNLOAD
+   RED ROUNDED BORDER ONLY
+========================= */
+
+.download{
+
+    display:inline-block;
+
+    padding:
+        10px 32px;
+
+    margin:0;
+
+    background:transparent;
+
+    border:
+        2px solid #e00000;
+
+    border-radius:50px;
+
+    outline:none;
+
+    box-shadow:none;
+
+    color:#ff2020;
+
+    text-decoration:none;
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size:31px;
+
+    line-height:1.2;
+
+    font-weight:bold;
+
+    letter-spacing:.2px;
+
+    text-shadow:
+        0 2px 8px
+        rgba(0,0,0,.9);
+
+    transition:
+        .2s ease;
+}
+
+
+/* =========================
+   DOWNLOAD HOVER
+========================= */
+
+.download:hover{
+
+    color:#fff;
+
+    background:#e00000;
+
+    transform:
+        scale(1.03);
+}
+
+
+/* =========================
+   DOWNLOAD CLICK
+========================= */
+
+.download:active{
+
+    transform:
+        scale(.96);
+
+}
+
+
+/* =========================
+   VERSION
+========================= */
+
+.version{
+
+    margin-top:18px;
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size:13px;
+
+    color:#eee;
+
+    text-shadow:
+        0 2px 8px
+        rgba(0,0,0,.95);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+
+    margin-top:28px;
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size:13px;
+
+    color:#ddd;
+
+    text-shadow:
+        0 2px 8px
+        rgba(0,0,0,.95);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:400px){
+
+    .content{
+
+        padding:
+            20px 15px;
+    }
+
+    .logo{
+
+        width:125px;
+
+        height:125px;
+
+        margin-bottom:22px;
+    }
+
+    .app-name{
+
+        font-size:41px;
+    }
+
+    .subtitle{
+
+        font-size:16px;
+
+        margin-bottom:27px;
+    }
+
+    .download{
+
+        font-size:28px;
+
+        padding:
+            8px 27px;
+    }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media(max-width:330px){
+
+    .logo{
+
+        width:110px;
+
+        height:110px;
+    }
+
+    .app-name{
+
+        font-size:36px;
+    }
+
+    .subtitle{
+
+        font-size:15px;
+    }
+
+    .download{
+
+        font-size:26px;
+
+        padding:
+            8px 24px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+    <div class="content">
+
+
+        <!-- APP LOGO -->
+
+        <img
+            class="logo"
+            src="logo.png"
+            alt="My Overtime Logo">
+
+
+        <!-- APP NAME -->
+
+        <h1 class="app-name">
+            My Overtime
+        </h1>
+
+
+        <!-- RED LINE -->
+
+        <div class="red-line"></div>
+
+
+        <!-- DESCRIPTION -->
+
+        <p class="subtitle">
+            Your Personal Overtime Calculator
+        </p>
+
+
+        <!-- DOWNLOAD -->
+
+        <a
+            class="download"
+            href="My-Overtime.apk"
+            download="My-Overtime.apk">
+
+            Download
+
+        </a>
+
+
+        <!-- VERSION -->
+
+        <div class="version">
+            Android Application
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <div class="footer">
+            © 2026 My Overtime
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>
