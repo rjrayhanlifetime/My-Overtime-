@@ -1,0 +1,2632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+user-scalable=no">
+
+<meta name="theme-color" content="#090909">
+
+<meta name="description"
+content="My Overtime - Your Personal Overtime Calculator">
+
+<title>My Overtime</title>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+}
+
+body{
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    background:#090909;
+    color:#fff;
+
+    overflow:hidden;
+}
+
+
+/* =====================================================
+   MAIN HOME
+===================================================== */
+
+.page{
+
+    width:100%;
+    height:100vh;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    background-image:
+
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.28),
+            rgba(0,0,0,.72)
+        ),
+
+        url("workers.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+
+.page::before{
+
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0,0,0,.05),
+            rgba(0,0,0,.45)
+        );
+
+    backdrop-filter:blur(2px);
+    -webkit-backdrop-filter:blur(2px);
+
+    pointer-events:none;
+}
+
+
+/* =====================================================
+   HOME CONTENT
+===================================================== */
+
+.content{
+
+    position:relative;
+    z-index:2;
+
+    width:100%;
+    max-width:520px;
+
+    padding:30px 22px;
+
+    text-align:center;
+
+    animation:
+        homeIn .7s ease both;
+}
+
+
+@keyframes homeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(18px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo-wrap{
+
+    width:158px;
+    height:158px;
+
+    margin:
+        0 auto 24px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    position:relative;
+}
+
+
+.logo-wrap::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:145px;
+    height:145px;
+
+    border-radius:50%;
+
+    background:
+        rgba(224,0,0,.17);
+
+    filter:blur(28px);
+
+    z-index:-1;
+}
+
+
+.logo{
+
+    width:150px;
+    height:150px;
+
+    object-fit:contain;
+
+    display:block;
+
+    border:0;
+    outline:0;
+
+    background:transparent;
+
+    filter:
+        drop-shadow(
+            0 14px 28px
+            rgba(0,0,0,.78)
+        );
+}
+
+
+/* =====================================================
+   APP NAME
+===================================================== */
+
+.app-name{
+
+    font-size:52px;
+
+    line-height:1;
+
+    font-weight:bold;
+
+    letter-spacing:-1.5px;
+
+    color:#fff;
+
+    margin-bottom:16px;
+
+    text-shadow:
+        0 3px 15px
+        rgba(0,0,0,1);
+}
+
+
+/* =====================================================
+   RED LINE
+===================================================== */
+
+.red-line{
+
+    width:72px;
+    height:3px;
+
+    margin:
+        0 auto 17px;
+
+    border-radius:20px;
+
+    background:#e00000;
+
+    box-shadow:
+        0 0 14px
+        rgba(224,0,0,.75);
+}
+
+
+/* =====================================================
+   SUBTITLE
+===================================================== */
+
+.subtitle{
+
+    font-size:18px;
+
+    line-height:1.45;
+
+    color:#fff;
+
+    margin-bottom:31px;
+
+    text-shadow:
+        0 2px 10px
+        rgba(0,0,0,1);
+}
+
+
+/* =====================================================
+   DOWNLOAD BUTTON
+===================================================== */
+
+.download{
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    min-width:185px;
+
+    padding:
+        10px 31px;
+
+    border:
+        2px solid #e00000;
+
+    border-radius:60px;
+
+    background:
+        rgba(0,0,0,.14);
+
+    color:#ff2020;
+
+    text-decoration:none;
+
+    font-size:31px;
+
+    line-height:1.2;
+
+    font-weight:bold;
+
+    letter-spacing:.2px;
+
+    text-shadow:
+        0 2px 8px
+        rgba(0,0,0,.95);
+
+    box-shadow:
+        0 8px 24px
+        rgba(0,0,0,.35);
+
+    transition:.22s ease;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+.download:hover{
+
+    color:#fff;
+
+    background:#e00000;
+
+    box-shadow:
+        0 8px 30px
+        rgba(224,0,0,.4);
+
+    transform:translateY(-2px);
+}
+
+
+.download:active{
+
+    transform:scale(.95);
+}
+
+
+/* =====================================================
+   VERSION
+===================================================== */
+
+.version{
+
+    margin-top:17px;
+
+    font-size:13px;
+
+    color:#eee;
+
+    text-shadow:
+        0 2px 8px
+        rgba(0,0,0,.95);
+}
+
+
+/* =====================================================
+   GUIDE BUTTON
+===================================================== */
+
+.guide-main{
+
+    margin-top:17px;
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    min-width:245px;
+
+    padding:
+        9px 27px;
+
+    border:
+        2px solid #e00000;
+
+    border-radius:60px;
+
+    background:
+        rgba(0,0,0,.18);
+
+    color:#ff2020;
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size:21px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    text-shadow:
+        0 2px 8px
+        rgba(0,0,0,.95);
+
+    box-shadow:
+        0 8px 24px
+        rgba(0,0,0,.35);
+
+    transition:.22s ease;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+.guide-main:hover{
+
+    color:#fff;
+
+    background:#e00000;
+
+    box-shadow:
+        0 8px 30px
+        rgba(224,0,0,.4);
+
+    transform:translateY(-2px);
+}
+
+
+.guide-main:active{
+
+    transform:scale(.95);
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+.menu{
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:10px;
+
+    margin-top:15px;
+
+    flex-wrap:wrap;
+}
+
+
+.menu-btn{
+
+    border:
+        1px solid
+        rgba(255,255,255,.34);
+
+    background:
+        rgba(0,0,0,.36);
+
+    color:#fff;
+
+    padding:
+        7px 18px;
+
+    border-radius:30px;
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:.2s ease;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+.menu-btn:hover{
+
+    background:#e00000;
+
+    border-color:#e00000;
+
+    transform:translateY(-1px);
+}
+
+
+.menu-btn:active{
+
+    transform:scale(.95);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+
+    margin-top:21px;
+
+    font-size:13px;
+
+    color:#ddd;
+
+    text-shadow:
+        0 2px 8px
+        rgba(0,0,0,.95);
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:100;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:16px;
+
+    background:
+        rgba(0,0,0,.76);
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+}
+
+
+.modal.show{
+
+    display:flex;
+
+    animation:
+        fadeModal .2s ease;
+}
+
+
+@keyframes fadeModal{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+
+/* =====================================================
+   MODAL BOX
+===================================================== */
+
+.modal-box{
+
+    width:100%;
+
+    max-width:510px;
+
+    max-height:91vh;
+
+    overflow-y:auto;
+
+    position:relative;
+
+    padding:25px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.14);
+
+    border-radius:25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30,30,30,.98),
+            rgba(11,11,11,.98)
+        );
+
+    box-shadow:
+        0 25px 80px
+        rgba(0,0,0,.85);
+
+    animation:
+        boxIn .25s ease;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+@keyframes boxIn{
+
+    from{
+        opacity:0;
+        transform:
+            translateY(20px)
+            scale(.97);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =====================================================
+   CLOSE BUTTON
+===================================================== */
+
+.close{
+
+    position:absolute;
+
+    top:14px;
+    right:14px;
+
+    width:36px;
+    height:36px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    background:
+        rgba(255,255,255,.07);
+
+    color:#fff;
+
+    font-size:23px;
+
+    cursor:pointer;
+
+    transition:.2s ease;
+
+    z-index:20;
+}
+
+
+.close:hover{
+
+    background:#e00000;
+
+    border-color:#e00000;
+}
+
+
+/* =====================================================
+   GUIDE MODAL
+===================================================== */
+
+.guide-header{
+
+    text-align:center;
+
+    padding:
+        4px 35px 20px;
+}
+
+
+.guide-icon{
+
+    width:72px;
+    height:72px;
+
+    margin:
+        0 auto 12px;
+
+    border-radius:20px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e00000,
+            #760000
+        );
+
+    box-shadow:
+        0 10px 30px
+        rgba(224,0,0,.35);
+
+    font-size:34px;
+}
+
+
+.guide-title{
+
+    font-size:27px;
+
+    font-weight:bold;
+
+    color:#fff;
+
+    margin-bottom:5px;
+}
+
+
+.guide-subtitle{
+
+    font-size:13px;
+
+    color:#999;
+
+    line-height:1.45;
+}
+
+
+.modal-line{
+
+    width:55px;
+
+    height:3px;
+
+    margin:
+        0 auto 21px;
+
+    border-radius:20px;
+
+    background:#e00000;
+
+    box-shadow:
+        0 0 12px
+        rgba(224,0,0,.6);
+}
+
+
+/* =====================================================
+   GUIDE OPTIONS
+===================================================== */
+
+.guide-options{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+}
+
+
+.guide-option{
+
+    width:100%;
+
+    min-height:78px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:13px 15px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    border-radius:17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.06),
+            rgba(255,255,255,.025)
+        );
+
+    color:#fff;
+
+    cursor:pointer;
+
+    text-align:left;
+
+    transition:.22s ease;
+}
+
+
+.guide-option:hover{
+
+    transform:
+        translateY(-2px);
+
+    border-color:#e00000;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(224,0,0,.17),
+            rgba(224,0,0,.04)
+        );
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,.4);
+}
+
+
+.guide-option:active{
+
+    transform:scale(.97);
+}
+
+
+.option-icon{
+
+    width:50px;
+    height:50px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:14px;
+
+    background:
+        rgba(224,0,0,.13);
+
+    color:#ff3030;
+
+    font-size:25px;
+
+    border:
+        1px solid
+        rgba(224,0,0,.18);
+}
+
+
+.option-info{
+
+    flex:1;
+
+    min-width:0;
+}
+
+
+.option-title{
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    margin-bottom:3px;
+
+    color:#fff;
+}
+
+
+.option-text{
+
+    font-size:12px;
+
+    line-height:1.4;
+
+    color:#999;
+}
+
+
+.option-arrow{
+
+    font-size:25px;
+
+    color:#777;
+}
+
+
+/* =====================================================
+   IMAGE VIEWER
+===================================================== */
+
+.image-viewer{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:300;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:15px;
+
+    background:
+        rgba(0,0,0,.95);
+
+    backdrop-filter:blur(10px);
+}
+
+
+.image-viewer.show{
+
+    display:flex;
+
+    animation:
+        fadeModal .2s ease;
+}
+
+
+.viewer-image{
+
+    max-width:100%;
+
+    max-height:90vh;
+
+    width:auto;
+    height:auto;
+
+    object-fit:contain;
+
+    border-radius:13px;
+
+    box-shadow:
+        0 20px 80px
+        rgba(0,0,0,.9);
+
+    animation:
+        imageIn .25s ease;
+}
+
+
+@keyframes imageIn{
+
+    from{
+        opacity:0;
+        transform:scale(.94);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+
+.viewer-close{
+
+    position:absolute;
+
+    top:17px;
+    right:17px;
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.25);
+
+    background:
+        rgba(255,255,255,.1);
+
+    color:#fff;
+
+    font-size:26px;
+
+    cursor:pointer;
+
+    z-index:10;
+
+    transition:.2s ease;
+}
+
+
+.viewer-close:hover{
+
+    background:#e00000;
+
+    border-color:#e00000;
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about-header{
+
+    text-align:center;
+
+    padding:
+        4px 35px 22px;
+}
+
+
+.about-logo{
+
+    width:82px;
+    height:82px;
+
+    object-fit:contain;
+
+    display:block;
+
+    margin:
+        0 auto 13px;
+
+    filter:
+        drop-shadow(
+            0 7px 18px
+            rgba(0,0,0,.7)
+        );
+}
+
+
+.about-name{
+
+    font-size:27px;
+
+    font-weight:700;
+
+    color:#fff;
+
+    margin-bottom:5px;
+}
+
+
+.about-tagline{
+
+    font-size:13px;
+
+    color:#aaa;
+}
+
+
+.about-section{
+
+    margin-bottom:21px;
+}
+
+
+.about-section h3{
+
+    font-size:18px;
+
+    color:#fff;
+
+    margin-bottom:8px;
+
+    font-weight:700;
+}
+
+
+.about-section p{
+
+    font-size:14.5px;
+
+    line-height:1.65;
+
+    color:#d7d7d7;
+}
+
+
+.feature-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:9px;
+
+    margin-top:12px;
+}
+
+
+.feature{
+
+    padding:12px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.09);
+
+    border-radius:13px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    color:#eee;
+
+    font-size:13px;
+
+    line-height:1.35;
+
+    transition:.2s ease;
+}
+
+
+.feature:hover{
+
+    border-color:
+        rgba(224,0,0,.45);
+
+    background:
+        rgba(224,0,0,.07);
+}
+
+
+.feature-icon{
+
+    font-size:20px;
+
+    display:block;
+
+    margin-bottom:6px;
+}
+
+
+.privacy-box{
+
+    padding:15px;
+
+    border-radius:15px;
+
+    border:
+        1px solid
+        rgba(224,0,0,.25);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(224,0,0,.10),
+            rgba(224,0,0,.025)
+        );
+}
+
+
+.privacy-title{
+
+    font-size:16px;
+
+    font-weight:700;
+
+    margin-bottom:6px;
+
+    color:#fff;
+}
+
+
+.privacy-text{
+
+    font-size:13.5px;
+
+    line-height:1.55;
+
+    color:#ccc;
+}
+
+
+.final-message{
+
+    margin-top:18px;
+
+    padding-top:17px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.10);
+
+    text-align:center;
+
+    font-size:14px;
+
+    line-height:1.55;
+
+    color:#ccc;
+}
+
+
+.final-message strong{
+
+    display:block;
+
+    margin-top:6px;
+
+    color:#fff;
+
+    font-size:15px;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact-header{
+
+    text-align:center;
+
+    padding:
+        4px 35px 21px;
+}
+
+
+.contact-logo{
+
+    width:86px;
+    height:86px;
+
+    object-fit:contain;
+
+    display:block;
+
+    margin:
+        0 auto 12px;
+
+    filter:
+        drop-shadow(
+            0 8px 20px
+            rgba(0,0,0,.75)
+        );
+}
+
+
+.contact-name{
+
+    font-size:25px;
+
+    font-weight:700;
+
+    color:#fff;
+
+    margin-bottom:5px;
+}
+
+
+.contact-sub{
+
+    font-size:13px;
+
+    color:#999;
+
+    line-height:1.45;
+}
+
+
+.contact-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+}
+
+
+.contact-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+
+    padding:14px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    border-radius:15px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    text-decoration:none;
+
+    color:#fff;
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        border .2s ease;
+}
+
+
+.contact-card:hover{
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(224,0,0,.45);
+
+    background:
+        rgba(224,0,0,.08);
+}
+
+
+.contact-icon{
+
+    width:45px;
+    height:45px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:13px;
+
+    background:
+        rgba(224,0,0,.12);
+
+    color:#ff3030;
+}
+
+
+.contact-icon svg{
+
+    width:24px;
+    height:24px;
+
+    fill:currentColor;
+}
+
+
+.contact-info{
+
+    min-width:0;
+
+    flex:1;
+}
+
+
+.contact-label{
+
+    font-size:11px;
+
+    color:#999;
+
+    margin-bottom:3px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.5px;
+}
+
+
+.contact-value{
+
+    font-size:15px;
+
+    color:#fff;
+
+    line-height:1.35;
+
+    word-break:break-word;
+}
+
+
+.contact-arrow{
+
+    font-size:19px;
+
+    color:#777;
+
+    flex-shrink:0;
+}
+
+
+.developer-card{
+
+    margin-top:16px;
+
+    padding:17px;
+
+    border-radius:16px;
+
+    text-align:center;
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    background:
+        rgba(255,255,255,.035);
+}
+
+
+.developer-small{
+
+    font-size:11px;
+
+    color:#888;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    margin-bottom:5px;
+}
+
+
+.developer-name{
+
+    font-size:20px;
+
+    font-weight:700;
+
+    color:#fff;
+
+    margin-bottom:5px;
+}
+
+
+.developer-role{
+
+    font-size:13px;
+
+    color:#999;
+}
+
+
+.address-card{
+
+    margin-top:10px;
+
+    padding:15px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    border-radius:15px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    background:
+        rgba(255,255,255,.035);
+}
+
+
+.address-icon{
+
+    width:43px;
+    height:43px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:12px;
+
+    background:
+        rgba(224,0,0,.12);
+
+    color:#ff3030;
+
+    font-size:21px;
+}
+
+
+.address-label{
+
+    font-size:11px;
+
+    color:#999;
+
+    text-transform:uppercase;
+
+    letter-spacing:.5px;
+
+    margin-bottom:3px;
+}
+
+
+.address-value{
+
+    font-size:14px;
+
+    line-height:1.4;
+
+    color:#eee;
+}
+
+
+.contact-bottom{
+
+    text-align:center;
+
+    margin-top:18px;
+
+    padding-top:15px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
+
+    font-size:12px;
+
+    line-height:1.5;
+
+    color:#888;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:400px){
+
+    .content{
+        padding:
+            20px 15px;
+    }
+
+    .logo-wrap{
+        width:135px;
+        height:135px;
+        margin-bottom:21px;
+    }
+
+    .logo{
+        width:128px;
+        height:128px;
+    }
+
+    .app-name{
+        font-size:43px;
+    }
+
+    .red-line{
+        width:62px;
+        margin-bottom:15px;
+    }
+
+    .subtitle{
+        font-size:16px;
+        margin-bottom:27px;
+    }
+
+    .download{
+        min-width:170px;
+        font-size:28px;
+        padding:
+            8px 27px;
+    }
+
+    .guide-main{
+        min-width:225px;
+        font-size:18px;
+        padding:
+            8px 21px;
+    }
+
+    .menu{
+        margin-top:13px;
+        gap:8px;
+    }
+
+    .menu-btn{
+        font-size:14px;
+        padding:
+            7px 14px;
+    }
+
+    .footer{
+        margin-top:18px;
+    }
+
+    .modal{
+        padding:12px;
+    }
+
+    .modal-box{
+        padding:
+            21px 17px;
+
+        border-radius:21px;
+
+        max-height:93vh;
+    }
+
+    .guide-option{
+        min-height:72px;
+        padding:11px;
+    }
+
+    .option-icon{
+        width:45px;
+        height:45px;
+        font-size:22px;
+    }
+
+    .option-title{
+        font-size:16px;
+    }
+
+    .option-text{
+        font-size:11.5px;
+    }
+
+    .about-logo{
+        width:73px;
+        height:73px;
+    }
+
+    .contact-logo{
+        width:76px;
+        height:76px;
+    }
+
+    .about-name{
+        font-size:25px;
+    }
+
+    .feature{
+        font-size:12.5px;
+        padding:11px;
+    }
+
+    .contact-value{
+        font-size:14px;
+    }
+
+}
+
+
+@media(max-width:330px){
+
+    .logo-wrap{
+        width:110px;
+        height:110px;
+    }
+
+    .logo{
+        width:105px;
+        height:105px;
+    }
+
+    .app-name{
+        font-size:37px;
+    }
+
+    .subtitle{
+        font-size:15px;
+    }
+
+    .download{
+        min-width:155px;
+        font-size:26px;
+    }
+
+    .guide-main{
+        min-width:210px;
+        font-size:17px;
+    }
+
+    .feature-grid{
+        gap:7px;
+    }
+
+    .feature{
+        font-size:12px;
+    }
+
+}
+
+
+/* =====================================================
+   SHORT SCREEN
+===================================================== */
+
+@media(max-height:650px){
+
+    .content{
+        padding:
+            10px 15px;
+    }
+
+    .logo-wrap{
+        width:100px;
+        height:100px;
+        margin-bottom:12px;
+    }
+
+    .logo{
+        width:96px;
+        height:96px;
+    }
+
+    .app-name{
+        font-size:38px;
+        margin-bottom:9px;
+    }
+
+    .subtitle{
+        margin-bottom:17px;
+    }
+
+    .guide-main{
+        margin-top:12px;
+    }
+
+    .menu{
+        margin-top:10px;
+    }
+
+    .footer{
+        margin-top:12px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HOME PAGE
+===================================================== -->
+
+<div class="page">
+
+    <main class="content">
+
+
+        <div class="logo-wrap">
+
+            <img
+                class="logo"
+                src="logo.png"
+                alt="My Overtime Logo">
+
+        </div>
+
+
+        <h1 class="app-name">
+            My Overtime
+        </h1>
+
+
+        <div class="red-line"></div>
+
+
+        <p class="subtitle">
+            Your Personal Overtime Calculator
+        </p>
+
+
+        <!-- DOWNLOAD -->
+
+        <a
+            class="download"
+            id="downloadBtn"
+            href="My-Overtime.apk"
+            download="My-Overtime.apk"
+            onclick="downloadApp(event)">
+
+            Download
+
+        </a>
+
+
+        <div class="version">
+            Android Application
+        </div>
+
+
+        <!-- =================================================
+             ONE GUIDE BUTTON
+        ================================================= -->
+
+        <button
+            class="guide-main"
+            onclick="openModal('guideModal')">
+
+            Installation &amp; Using Guide
+
+        </button>
+
+
+        <!-- MENU -->
+
+        <div class="menu">
+
+            <button
+                class="menu-btn"
+                onclick="openModal('aboutModal')">
+
+                About
+
+            </button>
+
+
+            <button
+                class="menu-btn"
+                onclick="openModal('contactModal')">
+
+                Contact
+
+            </button>
+
+        </div>
+
+
+        <div class="footer">
+            © 2026 My Overtime
+        </div>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- =====================================================
+     GUIDE MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="guideModal"
+    onclick="outsideClose(event,'guideModal')">
+
+    <div class="modal-box">
+
+
+        <button
+            class="close"
+            onclick="closeModal('guideModal')">
+
+            ×
+
+        </button>
+
+
+        <div class="guide-header">
+
+            <div class="guide-icon">
+                ?
+            </div>
+
+            <div class="guide-title">
+                Installation &amp; Using Guide
+            </div>
+
+            <div class="guide-subtitle">
+                Select a guide to learn more
+            </div>
+
+        </div>
+
+
+        <div class="modal-line"></div>
+
+
+        <div class="guide-options">
+
+
+            <!-- INSTALLATION -->
+
+            <div
+                class="guide-option"
+                onclick="showGuideImage(
+                    'installation.png',
+                    'Installation Guide'
+                )">
+
+
+                <div class="option-icon">
+                    📲
+                </div>
+
+
+                <div class="option-info">
+
+                    <div class="option-title">
+                        Installation
+                    </div>
+
+                    <div class="option-text">
+                        Learn how to install My Overtime
+                        on your Android phone.
+                    </div>
+
+                </div>
+
+
+                <div class="option-arrow">
+                    ›
+                </div>
+
+
+            </div>
+
+
+
+            <!-- USING GUIDE -->
+
+            <div
+                class="guide-option"
+                onclick="showGuideImage(
+                    'using-guide.png',
+                    'Using Guide'
+                )">
+
+
+                <div class="option-icon">
+                    📖
+                </div>
+
+
+                <div class="option-info">
+
+                    <div class="option-title">
+                        Using Guide
+                    </div>
+
+                    <div class="option-text">
+                        Learn how to use the features
+                        of My Overtime.
+                    </div>
+
+                </div>
+
+
+                <div class="option-arrow">
+                    ›
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FULLSCREEN GUIDE IMAGE
+===================================================== -->
+
+<div
+    class="image-viewer"
+    id="imageViewer"
+    onclick="closeViewer(event)">
+
+
+    <button
+        class="viewer-close"
+        onclick="closeImageViewer()">
+
+        ×
+
+    </button>
+
+
+    <img
+        class="viewer-image"
+        id="viewerImage"
+        src=""
+        alt="Guide Image">
+
+
+</div>
+
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<div
+    class="modal"
+    id="aboutModal"
+    onclick="outsideClose(event,'aboutModal')">
+
+    <div class="modal-box">
+
+
+        <button
+            class="close"
+            onclick="closeModal('aboutModal')">
+
+            ×
+
+        </button>
+
+
+        <div class="about-header">
+
+            <img
+                class="about-logo"
+                src="logo.png"
+                alt="My Overtime">
+
+            <div class="about-name">
+                My Overtime
+            </div>
+
+            <div class="about-tagline">
+                Your Personal Overtime Calculator
+            </div>
+
+        </div>
+
+
+        <div class="modal-line"></div>
+
+
+        <div class="about-section">
+
+            <h3>
+                About My Overtime
+            </h3>
+
+            <p>
+                My Overtime is a simple and easy-to-use
+                personal overtime calculator made especially
+                for garment worker brothers and sisters.
+            </p>
+
+        </div>
+
+
+        <div class="about-section">
+
+            <p>
+                Keeping track of how many hours you worked
+                overtime and how much money you should receive
+                can sometimes be difficult. My Overtime helps
+                you keep your own overtime records in a simple,
+                organized, and convenient way.
+            </p>
+
+        </div>
+
+
+        <div class="about-section">
+
+            <h3>
+                Your Overtime, Your Records
+            </h3>
+
+
+            <div class="feature-grid">
+
+                <div class="feature">
+                    <span class="feature-icon">⏱️</span>
+                    Daily Overtime Hours
+                </div>
+
+                <div class="feature">
+                    <span class="feature-icon">💰</span>
+                    Overtime Payment
+                </div>
+
+                <div class="feature">
+                    <span class="feature-icon">🍱</span>
+                    Tiffin Bill
+                </div>
+
+                <div class="feature">
+                    <span class="feature-icon">🌙</span>
+                    Night Bill
+                </div>
+
+                <div class="feature">
+                    <span class="feature-icon">📊</span>
+                    Monthly Total
+                </div>
+
+                <div class="feature">
+                    <span class="feature-icon">📋</span>
+                    Previous Records
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="about-section">
+
+            <div class="privacy-box">
+
+                <div class="privacy-title">
+                    Your Privacy Matters
+                </div>
+
+                <div class="privacy-text">
+
+                    My Overtime does not require unnecessary
+                    access to your phone. The App does not need
+                    your photos, contacts, or other personal
+                    phone data for its purpose.
+
+                    <br><br>
+
+                    The information you enter is used for
+                    maintaining and calculating your own
+                    overtime records.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="about-section">
+
+            <h3>
+                Made for Garment Workers
+            </h3>
+
+            <p>
+                The main purpose of My Overtime is to help
+                garment workers easily save and manage their
+                own overtime records and keep track of their
+                hard-earned overtime payments.
+            </p>
+
+        </div>
+
+
+        <div class="final-message">
+
+            We hope My Overtime will make your daily
+            overtime calculation easier and more convenient.
+
+            <strong>
+                My Overtime — Your Work, Your Records,
+                Your Control.
+            </strong>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<div
+    class="modal"
+    id="contactModal"
+    onclick="outsideClose(event,'contactModal')">
+
+    <div class="modal-box">
+
+
+        <button
+            class="close"
+            onclick="closeModal('contactModal')">
+
+            ×
+
+        </button>
+
+
+        <div class="contact-header">
+
+            <img
+                class="contact-logo"
+                src="logo.png"
+                alt="My Overtime Logo">
+
+            <div class="contact-name">
+                Contact
+            </div>
+
+            <div class="contact-sub">
+                Get in touch with the developer
+                of My Overtime
+            </div>
+
+        </div>
+
+
+        <div class="modal-line"></div>
+
+
+        <div class="contact-list">
+
+
+            <!-- WHATSAPP -->
+
+            <a
+                class="contact-card"
+                href="https://wa.me/8801608408441"
+                target="_blank"
+                rel="noopener">
+
+
+                <div class="contact-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <path d="M12.04 2C6.5 2 2 6.5 2 12.04c0 1.77.46 3.5 1.34 5.02L2 22l5.08-1.33a10 10 0 0 0 4.96 1.27h.01c5.54 0 10.05-4.5 10.05-10.04C22.1 6.5 17.58 2 12.04 2zm0 18.2c-1.56 0-3.08-.42-4.42-1.21l-.32-.19-3.02.79.81-2.94-.21-.34a8.32 8.32 0 1 1 7.16 3.89zm4.56-6.23c-.25-.13-1.49-.73-1.72-.81-.23-.08-.4-.13-.57.13-.17.25-.65.81-.8.98-.15.17-.29.19-.54.06-.25-.13-1.05-.39-2-1.24-.74-.66-1.24-1.48-1.39-1.73-.15-.25-.02-.39.11-.52.12-.12.25-.29.38-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.57-1.37-.78-1.88-.21-.5-.42-.43-.57-.44h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.61c.13.17 1.77 2.7 4.3 3.79.6.26 1.07.41 1.43.52.6.19 1.15.16 1.58.1.48-.07 1.49-.61 1.7-1.2.21-.59.21-1.1.15-1.2-.06-.11-.23-.17-.48-.29z"/>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="contact-info">
+
+                    <div class="contact-label">
+                        WhatsApp
+                    </div>
+
+                    <div class="contact-value">
+                        01608408441
+                    </div>
+
+                </div>
+
+
+                <div class="contact-arrow">
+                    ›
+                </div>
+
+
+            </a>
+
+
+
+            <!-- EMAIL -->
+
+            <a
+                class="contact-card"
+                href="mailto:rjrayhan.business@gmail.com">
+
+
+                <div class="contact-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="contact-info">
+
+                    <div class="contact-label">
+                        Email
+                    </div>
+
+                    <div class="contact-value">
+                        rjrayhan.business@gmail.com
+                    </div>
+
+                </div>
+
+
+                <div class="contact-arrow">
+                    ›
+                </div>
+
+
+            </a>
+
+
+        </div>
+
+
+
+        <div class="developer-card">
+
+            <div class="developer-small">
+                Developed By
+            </div>
+
+            <div class="developer-name">
+                RJ Rayhan
+            </div>
+
+            <div class="developer-role">
+                Creator & Developer of My Overtime
+            </div>
+
+        </div>
+
+
+
+        <div class="address-card">
+
+            <div class="address-icon">
+                📍
+            </div>
+
+            <div>
+
+                <div class="address-label">
+                    Address
+                </div>
+
+                <div class="address-value">
+                    Terosree, Ghior, Manikganj,
+                    Bangladesh
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="contact-bottom">
+
+            For questions, feedback, suggestions,
+            or support, feel free to contact us.
+
+            <br>
+
+            Thank you for using My Overtime.
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     DOWNLOAD SOUND
+===================================================== -->
+
+<audio
+    id="downloadSound"
+    src="download.mp3"
+    preload="auto">
+</audio>
+
+
+
+<script>
+
+/* =====================================================
+   OPEN MODAL
+===================================================== */
+
+function openModal(id){
+
+    document
+        .getElementById(id)
+        .classList.add("show");
+
+}
+
+
+/* =====================================================
+   CLOSE MODAL
+===================================================== */
+
+function closeModal(id){
+
+    document
+        .getElementById(id)
+        .classList.remove("show");
+
+}
+
+
+/* =====================================================
+   CLOSE WHEN CLICK OUTSIDE
+===================================================== */
+
+function outsideClose(event,id){
+
+    if(event.target.id === id){
+
+        closeModal(id);
+
+    }
+
+}
+
+
+/* =====================================================
+   DOWNLOAD APK + PLAY SOUND
+===================================================== */
+
+function downloadApp(event){
+
+    event.preventDefault();
+
+
+    const button =
+        document.getElementById(
+            "downloadBtn"
+        );
+
+
+    const sound =
+        document.getElementById(
+            "downloadSound"
+        );
+
+
+    /*
+       Play sound.
+       The sound is NOT downloaded.
+    */
+
+    sound.currentTime = 0;
+
+    sound.play().catch(function(error){
+
+        console.log(
+            "Audio could not play:",
+            error
+        );
+
+    });
+
+
+    /*
+       Button animation
+    */
+
+    button.style.pointerEvents =
+        "none";
+
+    button.innerHTML =
+        "Downloading...";
+
+
+    /*
+       Download APK only
+    */
+
+    const link =
+        document.createElement("a");
+
+
+    link.href =
+        "My-Overtime.apk";
+
+
+    link.download =
+        "My-Overtime.apk";
+
+
+    link.style.display =
+        "none";
+
+
+    document.body.appendChild(link);
+
+
+    link.click();
+
+
+    document.body.removeChild(link);
+
+
+    /*
+       Restore button
+    */
+
+    setTimeout(function(){
+
+        button.style.pointerEvents =
+            "auto";
+
+        button.innerHTML =
+            "Download";
+
+    },1800);
+
+}
+
+
+/* =====================================================
+   SHOW GUIDE IMAGE
+===================================================== */
+
+function showGuideImage(src,title){
+
+    const viewer =
+        document.getElementById(
+            "imageViewer"
+        );
+
+
+    const image =
+        document.getElementById(
+            "viewerImage"
+        );
+
+
+    image.src = src;
+
+    image.alt = title;
+
+
+    viewer.classList.add("show");
+
+}
+
+
+/* =====================================================
+   CLOSE IMAGE VIEWER
+===================================================== */
+
+function closeImageViewer(){
+
+    document
+        .getElementById(
+            "imageViewer"
+        )
+        .classList.remove("show");
+
+}
+
+
+/* =====================================================
+   CLOSE IMAGE VIEWER BY BACKGROUND
+===================================================== */
+
+function closeViewer(event){
+
+    if(
+        event.target.id ===
+        "imageViewer"
+    ){
+
+        closeImageViewer();
+
+    }
+
+}
+
+
+/* =====================================================
+   ESC KEY
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            closeModal("guideModal");
+
+            closeModal("aboutModal");
+
+            closeModal("contactModal");
+
+            closeImageViewer();
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
