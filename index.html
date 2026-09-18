@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+user-scalable=no">
+
+<meta name="theme-color" content="#090909">
+
+<meta name="description"
+content="My Overtime App - Release Announcement">
+
+<title>My Overtime - Coming Soon</title>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+}
+
+body{
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    background:#090909;
+
+    color:#fff;
+
+    overflow:hidden;
+}
+
+
+/* =====================================================
+   MAIN PAGE
+===================================================== */
+
+.page{
+
+    width:100%;
+    height:100vh;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.35),
+            rgba(0,0,0,.82)
+        ),
+
+        url("workers.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+}
+
+
+/* =====================================================
+   BACKGROUND OVERLAY
+===================================================== */
+
+.page::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(224,0,0,.08),
+            rgba(0,0,0,.55)
+        );
+
+    backdrop-filter:blur(2px);
+
+    -webkit-backdrop-filter:blur(2px);
+
+    pointer-events:none;
+}
+
+
+/* =====================================================
+   RED LIGHT EFFECT
+===================================================== */
+
+.page::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:320px;
+
+    height:320px;
+
+    border-radius:50%;
+
+    background:
+        rgba(224,0,0,.10);
+
+    filter:blur(90px);
+
+    top:50%;
+
+    left:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    pointer-events:none;
+}
+
+
+/* =====================================================
+   LANGUAGE SWITCH
+===================================================== */
+
+.language-switch{
+
+    position:absolute;
+
+    top:16px;
+
+    right:16px;
+
+    z-index:20;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:3px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.22);
+
+    border-radius:30px;
+
+    background:
+        rgba(0,0,0,.52);
+
+    backdrop-filter:blur(10px);
+
+    -webkit-backdrop-filter:blur(10px);
+
+    box-shadow:
+        0 5px 20px
+        rgba(0,0,0,.4);
+}
+
+
+.lang-btn{
+
+    border:0;
+
+    background:transparent;
+
+    color:#aaa;
+
+    padding:
+        6px 11px;
+
+    border-radius:22px;
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size:13px;
+
+    cursor:pointer;
+
+    transition:.2s ease;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+.lang-btn.active{
+
+    background:#e00000;
+
+    color:#fff;
+
+    box-shadow:
+        0 3px 12px
+        rgba(224,0,0,.45);
+}
+
+
+.lang-btn:active{
+
+    transform:scale(.94);
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.content{
+
+    position:relative;
+
+    z-index:5;
+
+    width:100%;
+
+    max-width:650px;
+
+    padding:
+        25px 22px;
+
+    text-align:center;
+
+    animation:
+        pageIn .7s ease both;
+}
+
+
+@keyframes pageIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(20px)
+            scale(.98);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =====================================================
+   WEB MESSAGE CARD
+===================================================== */
+
+.message-card{
+
+    width:100%;
+
+    padding:
+        35px 28px;
+
+    border-radius:26px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.14);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(25,25,25,.92),
+            rgba(5,5,5,.88)
+        );
+
+    box-shadow:
+
+        0 25px 80px
+        rgba(0,0,0,.75),
+
+        inset 0 1px 0
+        rgba(255,255,255,.04);
+
+    backdrop-filter:blur(15px);
+
+    -webkit-backdrop-filter:blur(15px);
+
+}
+
+
+/* =====================================================
+   TOP LABEL
+===================================================== */
+
+.top-label{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    padding:
+        7px 15px;
+
+    border-radius:30px;
+
+    border:
+        1px solid
+        rgba(224,0,0,.42);
+
+    background:
+        rgba(224,0,0,.09);
+
+    color:#ff3b3b;
+
+    font-size:13px;
+
+    margin-bottom:22px;
+
+    letter-spacing:.3px;
+}
+
+
+.status-dot{
+
+    width:7px;
+
+    height:7px;
+
+    border-radius:50%;
+
+    background:#e00000;
+
+    box-shadow:
+        0 0 12px
+        rgba(224,0,0,.9);
+
+    animation:
+        pulse 1.5s infinite;
+}
+
+
+@keyframes pulse{
+
+    0%{
+        opacity:.45;
+        transform:scale(.8);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    100%{
+        opacity:.45;
+        transform:scale(.8);
+    }
+
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.title{
+
+    font-size:52px;
+
+    line-height:1;
+
+    font-weight:bold;
+
+    letter-spacing:-1px;
+
+    color:#fff;
+
+    text-shadow:
+        0 4px 20px
+        rgba(0,0,0,1);
+
+    margin-bottom:14px;
+}
+
+
+/* =====================================================
+   RED LINE
+===================================================== */
+
+.red-line{
+
+    width:75px;
+
+    height:3px;
+
+    margin:
+        0 auto 22px;
+
+    border-radius:20px;
+
+    background:#e00000;
+
+    box-shadow:
+        0 0 15px
+        rgba(224,0,0,.8);
+}
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+.message{
+
+    font-size:20px;
+
+    line-height:1.65;
+
+    color:#eee;
+
+    text-shadow:
+        0 2px 10px
+        rgba(0,0,0,.8);
+
+    margin-bottom:25px;
+}
+
+
+/* =====================================================
+   RELEASE DATE
+===================================================== */
+
+.release-box{
+
+    display:inline-block;
+
+    padding:
+        16px 25px;
+
+    min-width:245px;
+
+    border-radius:18px;
+
+    border:
+        1px solid
+        rgba(224,0,0,.45);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(224,0,0,.14),
+            rgba(224,0,0,.035)
+        );
+
+    box-shadow:
+        0 10px 35px
+        rgba(0,0,0,.4);
+
+    margin-bottom:24px;
+}
+
+
+.release-small{
+
+    font-size:12px;
+
+    color:#aaa;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.2px;
+
+    margin-bottom:6px;
+}
+
+
+.release-date{
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    color:#ff2525;
+
+    text-shadow:
+        0 0 15px
+        rgba(224,0,0,.25);
+}
+
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.description{
+
+    max-width:520px;
+
+    margin:
+        0 auto;
+
+    font-size:14.5px;
+
+    line-height:1.65;
+
+    color:#aaa;
+}
+
+
+/* =====================================================
+   FOOTER MESSAGE
+===================================================== */
+
+.footer-message{
+
+    margin-top:25px;
+
+    padding-top:18px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.09);
+
+    font-size:14px;
+
+    color:#ccc;
+
+    line-height:1.6;
+}
+
+
+.footer-message strong{
+
+    display:block;
+
+    margin-top:5px;
+
+    color:#fff;
+
+    font-size:16px;
+}
+
+
+/* =====================================================
+   HIDDEN LANGUAGE
+===================================================== */
+
+.bn{
+
+    display:none;
+}
+
+
+body.bangla .en{
+
+    display:none;
+}
+
+
+body.bangla .bn{
+
+    display:inline;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:500px){
+
+    .language-switch{
+
+        top:12px;
+
+        right:12px;
+    }
+
+
+    .lang-btn{
+
+        font-size:12px;
+
+        padding:
+            5px 9px;
+    }
+
+
+    .content{
+
+        padding:
+            20px 14px;
+    }
+
+
+    .message-card{
+
+        padding:
+            29px 19px;
+
+        border-radius:22px;
+    }
+
+
+    .top-label{
+
+        font-size:12px;
+
+        padding:
+            6px 13px;
+
+        margin-bottom:19px;
+    }
+
+
+    .title{
+
+        font-size:43px;
+
+        margin-bottom:12px;
+    }
+
+
+    .red-line{
+
+        width:62px;
+
+        margin-bottom:18px;
+    }
+
+
+    .message{
+
+        font-size:17px;
+
+        line-height:1.6;
+
+        margin-bottom:22px;
+    }
+
+
+    .release-box{
+
+        min-width:210px;
+
+        padding:
+            14px 19px;
+
+        margin-bottom:21px;
+    }
+
+
+    .release-small{
+
+        font-size:10px;
+    }
+
+
+    .release-date{
+
+        font-size:23px;
+    }
+
+
+    .description{
+
+        font-size:13.5px;
+
+        line-height:1.6;
+    }
+
+
+    .footer-message{
+
+        margin-top:21px;
+
+        padding-top:15px;
+
+        font-size:13px;
+    }
+
+
+    .footer-message strong{
+
+        font-size:14px;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL SCREEN
+===================================================== */
+
+@media(max-width:350px){
+
+    .message-card{
+
+        padding:
+            24px 15px;
+    }
+
+
+    .title{
+
+        font-size:37px;
+    }
+
+
+    .message{
+
+        font-size:15px;
+    }
+
+
+    .release-date{
+
+        font-size:20px;
+    }
+
+
+    .description{
+
+        font-size:12.5px;
+    }
+
+}
+
+
+/* =====================================================
+   SHORT SCREEN
+===================================================== */
+
+@media(max-height:650px){
+
+    .content{
+
+        padding:
+            12px 14px;
+    }
+
+
+    .message-card{
+
+        padding:
+            22px 18px;
+    }
+
+
+    .top-label{
+
+        margin-bottom:12px;
+    }
+
+
+    .title{
+
+        font-size:38px;
+
+        margin-bottom:8px;
+    }
+
+
+    .red-line{
+
+        margin-bottom:12px;
+    }
+
+
+    .message{
+
+        font-size:15px;
+
+        line-height:1.45;
+
+        margin-bottom:14px;
+    }
+
+
+    .release-box{
+
+        padding:
+            10px 18px;
+
+        margin-bottom:14px;
+    }
+
+
+    .release-date{
+
+        font-size:21px;
+    }
+
+
+    .description{
+
+        font-size:12px;
+    }
+
+
+    .footer-message{
+
+        margin-top:13px;
+
+        padding-top:10px;
+
+        font-size:11.5px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     MAIN PAGE
+===================================================== -->
+
+<div class="page">
+
+
+    <!-- LANGUAGE -->
+
+    <div class="language-switch">
+
+        <button
+            class="lang-btn active"
+            id="englishBtn"
+            onclick="setLanguage('en')">
+
+            English
+
+        </button>
+
+
+        <button
+            class="lang-btn"
+            id="banglaBtn"
+            onclick="setLanguage('bn')">
+
+            বাংলা
+
+        </button>
+
+    </div>
+
+
+
+    <!-- CONTENT -->
+
+    <main class="content">
+
+
+        <div class="message-card">
+
+
+            <!-- STATUS -->
+
+            <div class="top-label">
+
+                <span class="status-dot"></span>
+
+                <span class="en">
+                    Official Release Announcement
+                </span>
+
+                <span class="bn">
+                    অফিসিয়াল রিলিজ ঘোষণা
+                </span>
+
+            </div>
+
+
+
+            <!-- TITLE -->
+
+            <h1 class="title">
+
+                My Overtime
+
+            </h1>
+
+
+
+            <!-- RED LINE -->
+
+            <div class="red-line"></div>
+
+
+
+            <!-- MAIN MESSAGE -->
+
+            <div class="message">
+
+                <span class="en">
+
+                    Our My Overtime App is going to be
+                    officially released on
+                    <strong>26 September 2026</strong>.
+                    <br>
+                    Everyone, please stay tuned and wait
+                    for the official release.
+
+                </span>
+
+
+                <span class="bn">
+
+                    আমাদের <strong>My Overtime App</strong>
+                    আগামী
+                    <strong>২৬ সেপ্টেম্বর ২০২৬</strong>
+                    তারিখে আনুষ্ঠানিকভাবে রিলিজ হবে।
+                    <br>
+                    সবাই অপেক্ষায় থাকুন এবং অফিসিয়াল
+                    রিলিজের জন্য আমাদের সাথে থাকুন।
+
+                </span>
+
+            </div>
+
+
+
+            <!-- RELEASE DATE -->
+
+            <div class="release-box">
+
+
+                <div class="release-small">
+
+                    <span class="en">
+                        Official Release Date
+                    </span>
+
+                    <span class="bn">
+                        অফিসিয়াল রিলিজের তারিখ
+                    </span>
+
+                </div>
+
+
+                <div class="release-date">
+
+                    26 September 2026
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="description">
+
+                <span class="en">
+
+                    My Overtime is designed to make overtime
+                    calculation and record keeping simple,
+                    organized and convenient.
+                    <br>
+                    A new experience is coming soon.
+
+                </span>
+
+
+                <span class="bn">
+
+                    My Overtime তৈরি করা হয়েছে
+                    ওভারটাইমের হিসাব ও রেকর্ড রাখা
+                    আরও সহজ, সুন্দর এবং সুবিধাজনক করার জন্য।
+                    <br>
+                    খুব শীঘ্রই আসছে একটি নতুন অভিজ্ঞতা।
+
+                </span>
+
+            </div>
+
+
+
+            <!-- FOOTER -->
+
+            <div class="footer-message">
+
+                <span class="en">
+
+                    Thank you for your patience and support.
+                    <br>
+
+                    Please stay with us until the release.
+
+                </span>
+
+
+                <span class="bn">
+
+                    আপনাদের ধৈর্য ও সহযোগিতার জন্য
+                    আন্তরিক ধন্যবাদ।
+                    <br>
+
+                    রিলিজ পর্যন্ত আমাদের সাথে থাকুন।
+
+                </span>
+
+
+                <strong>
+
+                    <span class="en">
+
+                        My Overtime — Coming Soon
+
+                    </span>
+
+
+                    <span class="bn">
+
+                        My Overtime — খুব শীঘ্রই আসছে
+
+                    </span>
+
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+</div>
+
+
+
+<script>
+
+/* =====================================================
+   LANGUAGE SYSTEM
+===================================================== */
+
+function setLanguage(language){
+
+    const body =
+        document.body;
+
+
+    const englishBtn =
+        document.getElementById(
+            "englishBtn"
+        );
+
+
+    const banglaBtn =
+        document.getElementById(
+            "banglaBtn"
+        );
+
+
+    if(language === "bn"){
+
+        body.classList.add("bangla");
+
+
+        englishBtn.classList.remove(
+            "active"
+        );
+
+
+        banglaBtn.classList.add(
+            "active"
+        );
+
+
+        document.documentElement.lang =
+            "bn";
+
+
+        localStorage.setItem(
+            "myOvertimeLanguage",
+            "bn"
+        );
+
+    }
+
+    else{
+
+        body.classList.remove(
+            "bangla"
+        );
+
+
+        banglaBtn.classList.remove(
+            "active"
+        );
+
+
+        englishBtn.classList.add(
+            "active"
+        );
+
+
+        document.documentElement.lang =
+            "en";
+
+
+        localStorage.setItem(
+            "myOvertimeLanguage",
+            "en"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   LOAD SAVED LANGUAGE
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        const savedLanguage =
+            localStorage.getItem(
+                "myOvertimeLanguage"
+            );
+
+
+        if(savedLanguage === "bn"){
+
+            setLanguage("bn");
+
+        }
+
+        else{
+
+            setLanguage("en");
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
