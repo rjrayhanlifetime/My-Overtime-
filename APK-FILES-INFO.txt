@@ -1,5 +1,0 @@
-APK upload instructions:
-Upload each APK beside index.html, using the exact filename shown in the release list.
-To add a version, edit the releases array in index.html and add { date: 'DD-MM-YYYY', file: 'My-Overtime-DD.MM.YYYY.apk' }.
-The website sorts release dates automatically and shows Latest on the newest date; all earlier versions show Old.
-The APK file itself must also be uploaded. The site cannot discover new APKs automatically on a normal static host.
